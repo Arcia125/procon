@@ -1,12 +1,46 @@
 {
+  "name": "procon",
+  "description": "Cli pro/con list generator",
+  "license": "MIT",
+  "author": "Kevin Hallett",
+  "version": "1.0.0",
+  "main": "index.js",
   "bin": "lib/cli.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "keywords": [
+    "CLI",
+    "pro",
+    "con",
+    "list"
+  ],
   "dependencies": {
     "meow": "^3.7.0"
   },
   "devDependencies": {
-    "lec": "^1.0.1"
+    "lec": "^1.0.1",
+    "eslint": "^5.12.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.0",
+    "prettier": "^1.16.1"
   },
   "scripts": {
-    "prepare": "lec lib/cli.js -c LF"
+    "prepare": "lec lib/cli.js -c LF",
+    "prepare-commit": "npm run prepare && lint-staged"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prepare-commit"
+    }
+  },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint"
+    ],
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
