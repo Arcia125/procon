@@ -1,18 +1,18 @@
 const List = require("./lib/list");
 
-class Procon {
+class Proconner {
   static run(args, flags) {
     const [command, ...commandArgs] = args;
     const fileName = (flags.file !== true && flags.file) || "list.json";
     switch (command.toUpperCase()) {
       case "PRO":
-        return Procon.addToList(
+        return Proconner.addToList(
           fileName,
           List.SUBLISTS.PRO,
           commandArgs.join(" ")
         );
       case "CON":
-        return Procon.addToList(
+        return Proconner.addToList(
           fileName,
           List.SUBLISTS.CON,
           commandArgs.join(" ")
@@ -28,4 +28,4 @@ class Procon {
   }
 }
 
-module.exports = Procon;
+module.exports = Proconner;
