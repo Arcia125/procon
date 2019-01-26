@@ -16,6 +16,7 @@
     "list"
   ],
   "dependencies": {
+    "jsonfile": "^5.0.0",
     "meow": "^3.7.0"
   },
   "devDependencies": {

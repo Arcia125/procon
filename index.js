@@ -1,6 +1,10 @@
 class Procon {
   static run(args, flags) {
-    console.log(args, flags);
+    const [command, ...commandArgs] = args;
+    const fileName = flags.fileName;
+    switch (command) {
+      case "PRO":
+    }
   }
 }
 
