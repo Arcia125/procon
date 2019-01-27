@@ -1,22 +1,15 @@
 const List = require("./lib/list");
+const { PRO, CON } = require("./lib/constants");
 
 class Proconner {
   static run(args, flags) {
     const [command, ...commandArgs] = args;
     const fileName = (flags.file !== true && flags.file) || "list.json";
-    switch (command.toUpperCase()) {
+    switch (command.toUppercase()) {
       case "PRO":
-        return Proconner.addToList(
-          fileName,
-          List.SUBLISTS.PRO,
-          commandArgs.join(" ")
-        );
+        return Proconner.addToList(fileName, PRO, commandArgs.join(" "));
       case "CON":
-        return Proconner.addToList(
-          fileName,
-          List.SUBLISTS.CON,
-          commandArgs.join(" ")
-        );
+        return Proconner.addToList(fileName, CON, commandArgs.join(" "));
       default:
         return Promise.reject();
     }
